@@ -38,8 +38,8 @@ async function render() {
                 <Routes>
                     <Route path="/dialog"
                            element={<GoogleFormPickerDialog onOk={(items: any[]) => console.log('selected', items)}
-                                                            clientId={'765704039539-2vue79iigicloigbpnraov76cijk45fp.apps.googleusercontent.com'}
-                                                            apiKey={'AIzaSyAqGfWhC0PaLyjXbgwLrlLyuCYPDwxSjoI'}/>}/>
+                                                            clientId={'123'}
+                                                            apiKey={'456'}/>}/>
                     <Route path="/"
                            element={<UiField onChange={items => console.log(items)} items={[]} editMode={true}
                                              onOpenDialog={items => console.log('open dialog')}/>}/>

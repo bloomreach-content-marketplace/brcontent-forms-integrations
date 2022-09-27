@@ -15,8 +15,6 @@ export const GoogleFormPickerDialog = ({onOk, clientId, apiKey}: CmsDialogProper
     const [items, setItems] = useState<Array<any>>([])
     const [openPicker, authResponse] = useDrivePicker();
 
-
-
     const handleOpenPicker = () => {
         openPicker({
             clientId: clientId,//"765704039539-2vue79iigicloigbpnraov76cijk45fp.apps.googleusercontent.com",
@@ -37,7 +35,7 @@ export const GoogleFormPickerDialog = ({onOk, clientId, apiKey}: CmsDialogProper
                     onOk(data.docs.map(value => {
                         return {
                             content: value,
-                            embed: `<iframe src="${value.embedUrl}" width="640" height="2354" frameBorder="0" marginHeight="0" marginWidth="0">Loading…</iframe>`
+                            embed: btoa(unescape(encodeURIComponent(`<iframe src="${value.embedUrl}" width="640" height="2354" frameBorder="0" marginHeight="0" marginWidth="0">Loading…</iframe>`)))
                         }
                     }));
                     setItems(data.docs)
