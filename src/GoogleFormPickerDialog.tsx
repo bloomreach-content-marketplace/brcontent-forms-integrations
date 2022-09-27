@@ -35,7 +35,7 @@ export const GoogleFormPickerDialog = ({onOk, clientId, apiKey}: CmsDialogProper
                     onOk(data.docs.map(value => {
                         return {
                             content: value,
-                            embed: btoa(unescape(encodeURIComponent(`<iframe src="${value.embedUrl}" width="640" height="2354" frameBorder="0" marginHeight="0" marginWidth="0">Loading…</iframe>`)))
+                            embed: btoa(unescape(encodeURIComponent(`<iframe src="${value.embedUrl}" width="640" height="800" frameBorder="0" marginHeight="0" marginWidth="0">Loading…</iframe>`)))
                         }
                     }));
                     setItems(data.docs)
