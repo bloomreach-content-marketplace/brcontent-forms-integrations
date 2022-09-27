@@ -24,7 +24,7 @@ export const GoogleFormPickerDialog = ({onOk, clientId, apiKey}: CmsDialogProper
             showUploadFolders: false,
             supportDrives: false,
             multiselect: false,
-            origin: 'https://sandbox-sales02.bloomreach.io',
+            origin: window.location.ancestorOrigins[0],
             // customViews: customViewsArray, // custom view
             callbackFunction: (data) => {
                 if (data.action === 'cancel') {
