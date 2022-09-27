@@ -54,7 +54,7 @@ export default class UiField extends React.Component<FieldProperties, FieldState
                                               size={'medium'}
                                               variant={"outlined"}
                                               icon={<DynamicFormIcon/>}
-                                              label={item.content.title}
+                                              label={item.content.name}
                                               onDelete={() => this.setState({items: []}, () => this.props.onChange([]))}
                                         />
                                     </Grid>

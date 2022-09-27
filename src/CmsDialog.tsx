@@ -1,7 +1,7 @@
 import React from "react";
 import {UiConfig} from "./utils";
 import {UiScope} from "@bloomreach/ui-extension";
-import UiDialog from "./UiDialog";
+import {GoogleFormPickerDialog} from "./GoogleFormPickerDialog";
 
 interface CmsDialogState {
     items: Array<any>
@@ -45,10 +45,10 @@ export default class CmsDialog extends React.Component<CmsDialogProperties, CmsD
     render() {
         const {items} = this.state;
         return (
-            <UiDialog key={items.length}
+            <GoogleFormPickerDialog clientId={this.config.clientId} apiKey={this.config.apiKey} key={items.length}
                       onOk={items => {
                           this.props.ui.dialog.close(items)
-                      }} endpoint={this.config.endpoint} jwtToken={this.config?.jwtToken}/>);
+                      }} />);
     }
 }
 

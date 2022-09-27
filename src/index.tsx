@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-import UiDialog from "./UiDialog";
-import {itemData, itemDataList} from "./utils";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import UiField from "./UiField";
 import UiExtension, {UiScope} from "@bloomreach/ui-extension";
 import CmsDialog from "./CmsDialog";
+import {GoogleFormPickerDialog} from "./GoogleFormPickerDialog";
+import UiField from "./UiField";
 import CmsField from "./CmsField";
 
 async function render() {
@@ -37,12 +36,13 @@ async function render() {
         const routing = (
             <BrowserRouter>
                 <Routes>
-                    <Route path="/dialog" element={<UiDialog jwtToken={''} endpoint={'https://mohmrdooyjchssz.form.io'}  onOk={items => console.log('onOk', items)}
-                                                              />}/>
+                    <Route path="/dialog"
+                           element={<GoogleFormPickerDialog onOk={(items: any[]) => console.log('selected', items)}
+                                                            clientId={'765704039539-2vue79iigicloigbpnraov76cijk45fp.apps.googleusercontent.com'}
+                                                            apiKey={'AIzaSyAqGfWhC0PaLyjXbgwLrlLyuCYPDwxSjoI'}/>}/>
                     <Route path="/"
-                           element={<UiField items={itemData} onChange={items => console.log('onChange', items)}
-                                             editMode={false}
-                                             onOpenDialog={() => window.open("/dialog")}/>}/>
+                           element={<UiField onChange={items => console.log(items)} items={[]} editMode={true}
+                                             onOpenDialog={items => console.log('open dialog')}/>}/>
                 </Routes>
             </BrowserRouter>
         );
