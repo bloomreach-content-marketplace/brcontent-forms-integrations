@@ -69,7 +69,7 @@ export default class UiDialog extends React.Component<DialogProperties, DialogSt
                                                 onSelected={(itemSelected) => {
                                                     this.props.onOk([{
                                                         content: itemSelected,
-                                                        embed: btoa(unescape(encodeURIComponent(`<script type="text/javascript" src="${itemSelected.id}"></script>`)))
+                                                        embed: btoa(unescape(encodeURIComponent(`<script type="text/javascript" src="https://form.jotform.com/jsform/${itemSelected.id}"></script>`)))
                                                     }])
                                                     // axios.get(`https://api.jotform.com/form/${itemSelected.id}/source?apiKey=${this.props.apiKey}`).then(response => {
                                                     //     this.props.onOk([{
