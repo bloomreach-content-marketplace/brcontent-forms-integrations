@@ -67,12 +67,16 @@ export default class UiDialog extends React.Component<DialogProperties, DialogSt
                                 <ListItem sx={{width: 'auto', display: 'inline-block'}} key={item.name}>
                                     <DialogItem item={item}
                                                 onSelected={(itemSelected) => {
-                                                    axios.get(`https://api.jotform.com/form/${itemSelected.id}/source?apiKey=${this.props.apiKey}`).then(response => {
-                                                        this.props.onOk([{
-                                                            content: itemSelected,
-                                                            embed: btoa(response.data.content)
-                                                        }])
-                                                    })
+                                                    this.props.onOk([{
+                                                        content: itemSelected,
+                                                        embed: btoa(unescape(encodeURIComponent(`<script type="text/javascript" src="${itemSelected.id}"></script>`)))
+                                                    }])
+                                                    // axios.get(`https://api.jotform.com/form/${itemSelected.id}/source?apiKey=${this.props.apiKey}`).then(response => {
+                                                    //     this.props.onOk([{
+                                                    //         content: itemSelected,
+                                                    //         embed: btoa(unescape(encodeURIComponent(`<script type="text/javascript" src="${itemSelected.id}"></script>`)))
+                                                    //     }])
+                                                    // })
                                                 }}/>
                                 </ListItem>
                             )
